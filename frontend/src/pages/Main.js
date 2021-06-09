@@ -53,8 +53,7 @@ class Main extends Component {
                     <Container>
                         <Header as='h2' inverted>Как проходят астровыезды</Header>
                         <Gallery
-                            photos={[
-                            ]}
+                            photos={[]}
                         />
                     </Container>
                 </div>
