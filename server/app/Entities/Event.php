@@ -5,17 +5,17 @@ use CodeIgniter\Entity\Entity;
 class Event extends Entity
 {
     protected $casts = [
-        'category'         => 'string',
-        'subcategory'      => 'string',
-        'address_country'  => 'integer',
-        'address_region'   => 'integer',
-        'address_district' => 'integer',
-        'address_city'     => 'integer',
-        'latitude'         => 'float',
-        'longitude'        => 'float',
-        'author'           => 'integer',
-        'rating'           => 'integer',
-        'views'            => 'integer',
-        'tags'             => 'json'
+        'title'        => 'string',
+        'text'         => 'string',
+        'address'      => 'string',
+        'address_link' => 'string',
+        'image'        => 'string',
+        'date'         => 'string',
+        'views'        => 'integer',
+        'members'      => 'integer',
+        'registration_limit'  => 'integer',
+        'registration_enable' => 'boolean',
+        'registration_start'  => 'string',
+        'registration_stop'   => 'string',
     ];
 }

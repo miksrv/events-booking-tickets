@@ -1,33 +1,25 @@
 <?php namespace App\Models;
 
-use App\Entities\Event;
+use App\Entities\EventMember;
 
-class EventModel extends MyBaseModel
+class EventMembersModel extends MyBaseModel
 {
-    protected $table      = 'events';
+    protected $table      = 'event_members';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = false;
 
-    protected $returnType     = Event::class;
+    protected $returnType     = EventMember::class;
     protected $useSoftDeletes = true;
 
     protected array $hiddenFields = ['created_at', 'updated_at', 'deleted_at'];
 
     // The updatable fields
     protected $allowedFields = [
-        'title',
-        'text',
-        'address',
-        'address_link',
-        'image',
-        'date',
-        'views',
-        'members',
-        'registration_limit',
-        'registration_enable',
-        'registration_start',
-        'registration_stop'
+        'event',
+        'member',
+        'adults',
+        'children'
     ];
 
     // Dates

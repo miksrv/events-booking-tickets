@@ -23,4 +23,4 @@ services:
       - localserver:/var/lib/mysql
 # Names our volume
 volumes:
-  localserver:
+  events_booking:

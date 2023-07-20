@@ -1,33 +1,27 @@
 <?php namespace App\Models;
 
-use App\Entities\Event;
+use App\Entities\Photo;
 
-class EventModel extends MyBaseModel
+class PhotosModel extends MyBaseModel
 {
-    protected $table      = 'events';
+    protected $table      = 'photos';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = false;
 
-    protected $returnType     = Event::class;
+    protected $returnType     = Photo::class;
     protected $useSoftDeletes = true;
 
     protected array $hiddenFields = ['created_at', 'updated_at', 'deleted_at'];
 
     // The updatable fields
     protected $allowedFields = [
+        'event',
         'title',
-        'text',
-        'address',
-        'address_link',
+        'description',
+        'width',
+        'height',
         'image',
-        'date',
-        'views',
-        'members',
-        'registration_limit',
-        'registration_enable',
-        'registration_start',
-        'registration_stop'
     ];
 
     // Dates

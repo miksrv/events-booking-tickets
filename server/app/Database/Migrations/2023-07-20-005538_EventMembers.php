@@ -31,7 +31,7 @@ class EventMembers extends Migration
                 'null'       => false,
                 'default'    => 1
             ],
-            'childs' => [
+            'children' => [
                 'type'       => 'TINYINT',
                 'constraint' => 2,
                 'null'       => false,

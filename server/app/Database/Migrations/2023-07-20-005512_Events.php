@@ -29,6 +29,11 @@ class Events extends Migration
                 'constraint' => 250,
                 'null'       => true
             ],
+            'address_link' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 250,
+                'null'       => true
+            ],
             'image' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 200,
@@ -50,6 +55,11 @@ class Events extends Migration
                 'null'       => false,
                 'default'    => 0
             ],
+            'registration_limit' => [
+                'type'       => 'SMALLINT',
+                'constraint' => 5,
+                'null'       => true,
+            ],
             'registration_enable' => [
                 'type'       => 'TINYINT',
                 'constraint' => 1,
@@ -57,6 +67,10 @@ class Events extends Migration
                 'default'    => 0
             ],
             'registration_start' => [
+                'type' => 'DATETIME',
+                'null' => true
+            ],
+            'registration_stop' => [
                 'type' => 'DATETIME',
                 'null' => true
             ],
