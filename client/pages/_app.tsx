@@ -3,6 +3,11 @@ import { AppProps } from 'next/app'
 import { Montserrat } from 'next/font/google'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
+import 'semantic-ui-css/semantic.min.css'
+
+import Footer from '@/components/footer'
+
+import '@/public/styles/globals.sass'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -29,6 +34,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             <Provider store={store}>
                 <main className={montserrat.className}>
                     <Component {...props.pageProps} />
+                    <Footer />
                 </main>
             </Provider>
         </>

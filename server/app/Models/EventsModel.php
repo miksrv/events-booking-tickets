@@ -2,7 +2,7 @@
 
 use App\Entities\Event;
 
-class EventModel extends MyBaseModel
+class EventsModel extends MyBaseModel
 {
     protected $table      = 'events';
     protected $primaryKey = 'id';

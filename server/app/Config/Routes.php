@@ -34,6 +34,9 @@ $routes->get('events', 'Events::list');
 $routes->get('events/(:alphanum)', 'Events::show/$1');
 $routes->options('events', 'Events');
 $routes->options('events/(:alphanum)', 'Events');
+
+$routes->post('booking', 'Booking::create');
+$routes->options('booking', 'Booking');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

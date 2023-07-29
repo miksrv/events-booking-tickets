@@ -45,6 +45,8 @@ class EventMembers extends Migration
             ]
         ]);
         $this->forge->addPrimaryKey('id');
+        $this->forge->addForeignKey('event', 'events', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('member', 'members', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('event_members');
     }
 

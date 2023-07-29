@@ -1,8 +1,13 @@
+import {
+    APIRequestBooking,
+    APIResponseBooking,
+    APIResponseError,
+    APIResponseEventsList
+} from '@/api/types'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { HYDRATE } from 'next-redux-wrapper'
 
-export const imageHost =
-    process.env.NEXT_PUBLIC_IMG_HOST || process.env.NEXT_PUBLIC_API_HOST
+type Maybe<T> = T | void
 
 export const api = createApi({
     baseQuery: fetchBaseQuery({
@@ -18,10 +23,23 @@ export const api = createApi({
             return headers
         }
     }),
-    endpoints: () => ({
-        // poiGetList: builder.mutation<any, Maybe<any>>({
-        //     query: (params) => `poi${encodeQueryData(params)}`
-        // })
+    endpoints: (builder) => ({
+        bookingPost: builder.mutation<
+            Maybe<APIResponseBooking> | APIResponseError,
+            APIRequestBooking
+        >({
+            query: ({ ...formState }) => ({
+                body: formState,
+                method: 'POST',
+                url: 'booking'
+            }),
+            transformErrorResponse: (response) => response.data
+        }),
+
+        eventsGetList: builder.query<Maybe<APIResponseEventsList>, void>({
+            query: () => 'events',
+            transformErrorResponse: (response) => response.data
+        })
     }),
     extractRehydrationInfo(action, { reducerPath }) {
         if (action.type === HYDRATE) {
@@ -34,8 +52,12 @@ export const api = createApi({
 
 // Export hooks for usage in functional components
 export const {
+    useBookingPostMutation,
+
+    useEventsGetListQuery,
+
     util: { getRunningQueriesThunk }
 } = api
 
 // export endpoints for use in SSR
-// export const {} = api.endpoints
+export const { eventsGetList } = api.endpoints
