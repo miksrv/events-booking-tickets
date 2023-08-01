@@ -28,21 +28,21 @@ const Main: NextPage = () => {
     const { data: eventsData, isLoading: eventsLoading } =
         useEventsGetListQuery()
 
-    const openRegistrationEvent = useMemo(
-        () =>
-            eventsData?.items.find(
-                ({ registration_enable }) => registration_enable
-            ),
-        [eventsData?.items]
-    )
+    // const openRegistrationEvent = useMemo(
+    //     () =>
+    //         eventsData?.items.find(
+    //             ({ registration_enable }) => registration_enable
+    //         ),
+    //     [eventsData?.items]
+    // )
 
     return (
         <div>
             <Header />
             <Slider />
             <div className={'wrapper'}>
-                {openRegistrationEvent && (
-                    <EventRegistration event={openRegistrationEvent} />
+                {eventsData?.items?.[0] && (
+                    <EventRegistration event={eventsData.items?.[0]} />
                 )}
                 {/*<h2>Архив астрономичкских мероприятий</h2>*/}
                 {/*{eventsData?.items*/}

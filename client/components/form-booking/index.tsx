@@ -16,9 +16,13 @@ type TBookingForm = {
 
 type TFormBookingProps = {
     event: string
+    onCancelRegistration?: () => void
 }
 
-const FormBooking: React.FC<TFormBookingProps> = ({ event }) => {
+const FormBooking: React.FC<TFormBookingProps> = ({
+    event,
+    onCancelRegistration
+}) => {
     const [booking, { isLoading, isSuccess, isError, error }] =
         useBookingPostMutation()
 
@@ -127,6 +131,18 @@ const FormBooking: React.FC<TFormBookingProps> = ({ event }) => {
                 </Grid>
             </Form>
             <div className={styles.buttonContainer}>
+                {onCancelRegistration && (
+                    <Button
+                        size={'large'}
+                        color={'grey'}
+                        className={styles.cancelButton}
+                        onClick={onCancelRegistration}
+                        disabled={isLoading}
+                        loading={isLoading}
+                    >
+                        Отмена
+                    </Button>
+                )}
                 <Button
                     size={'large'}
                     color={'orange'}
