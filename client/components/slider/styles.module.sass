@@ -1,0 +1,51 @@
+.slider
+  background-image: url('/images/slider-1.jpg')
+  background-size: cover
+  background-position-y: 19%
+  height: 100vh
+  min-height: 500px
+  padding-bottom: 80px
+  position: relative
+  z-index: 1
+
+  &::before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(1%,#181821),color-stop(26%,rgba(31,31,41,0)))
+    background: linear-gradient(360deg, #181821 1%, rgba(31,31,41,0) 26%)
+
+  .overlay
+    height: 100vh
+
+.title
+  font-size: 50px
+  line-height: 58px
+  letter-spacing: 0.09em
+  align-items: center
+  text-align: center
+  text-transform: uppercase
+  text-shadow: 0 4px 4px rgba(0,0,0,0.3)
+  font-weight: 100
+  padding-top: 25%
+
+
+  &:before
+    position: absolute
+    top: -100px
+    left: 0
+    right: 0
+    bottom: -100px
+    content: ''
+    z-index: -1
+    background: url('/images/ellipse_25.png') no-repeat center
+    background-size: contain
+
+.subtitle
+  text-align: center
+  font-weight: 300
+  text-shadow: 0 0 2px #555

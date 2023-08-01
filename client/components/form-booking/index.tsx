@@ -2,6 +2,7 @@ import { useBookingPostMutation } from '@/api/api'
 import { APIRequestBooking, APIResponseError } from '@/api/types'
 import React, { useCallback, useState } from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 import styles from './styles.module.sass'
 
@@ -52,13 +53,13 @@ const FormBooking: React.FC<TFormBookingProps> = ({ event }) => {
                 error={isError && submitted}
                 size={'small'}
             >
-                <Message
-                    error
-                    header={'Ошибка сохранения'}
-                    content={
-                        'При сохранении автора были допущены ошибки, проверьте правильность заполнения полей'
-                    }
-                />
+                {/*<Message*/}
+                {/*    error*/}
+                {/*    header={'Ошибка сохранения'}*/}
+                {/*    content={*/}
+                {/*        'При сохранении автора были допущены ошибки, проверьте правильность заполнения полей'*/}
+                {/*    }*/}
+                {/*/>*/}
                 <Message
                     success
                     header={'Автор сохранен'}
@@ -77,6 +78,7 @@ const FormBooking: React.FC<TFormBookingProps> = ({ event }) => {
                 <Form.Input
                     fluid
                     required={true}
+                    type={'email'}
                     name={'email'}
                     label={'Email'}
                     onChange={handleChange}
@@ -93,44 +95,49 @@ const FormBooking: React.FC<TFormBookingProps> = ({ event }) => {
                     error={findError('phone')}
                     defaultValue={formState?.phone}
                 />
-                <Form.Input
-                    fluid
-                    required={true}
-                    type={'number'}
-                    name={'adults'}
-                    label={'Количество взрослых'}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                    error={findError('adults')}
-                    defaultValue={formState?.adults}
-                />
-                <Form.Input
-                    fluid
-                    required={true}
-                    type={'number'}
-                    name={'children'}
-                    label={'Количество детей'}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                    error={findError('children')}
-                    defaultValue={formState?.children}
-                />
+                <Grid className={styles.marginBottom}>
+                    <Grid.Column width={8}>
+                        <Form.Input
+                            fluid
+                            required={true}
+                            maxLength={2}
+                            type={'number'}
+                            name={'adults'}
+                            label={'Взрослых'}
+                            onChange={handleChange}
+                            onKeyDown={handleKeyDown}
+                            error={findError('adults')}
+                            defaultValue={formState?.adults}
+                        />
+                    </Grid.Column>
+                    <Grid.Column width={8}>
+                        <Form.Input
+                            fluid
+                            required={true}
+                            maxLength={2}
+                            type={'number'}
+                            name={'children'}
+                            label={'Детей (до 12 лет)'}
+                            onChange={handleChange}
+                            onKeyDown={handleKeyDown}
+                            error={findError('children')}
+                            defaultValue={formState?.children}
+                        />
+                    </Grid.Column>
+                </Grid>
             </Form>
-            <Button
-                size={'tiny'}
-                onClick={handleSubmit}
-                color={'green'}
-                disabled={isLoading || !formState?.name}
-                loading={isLoading}
-            >
-                Сохранить
-            </Button>
-            <Button
-                size={'small'}
-                color={'grey'}
-            >
-                Отмена
-            </Button>
+            <div className={styles.buttonContainer}>
+                <Button
+                    size={'large'}
+                    color={'orange'}
+                    className={styles.submitButton}
+                    onClick={handleSubmit}
+                    disabled={isLoading || !formState?.name}
+                    loading={isLoading}
+                >
+                    Отправить
+                </Button>
+            </div>
         </div>
     )
 }

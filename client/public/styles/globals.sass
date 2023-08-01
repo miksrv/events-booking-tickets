@@ -6,3 +6,83 @@ body
   font-size: 16px
   line-height: 24px
   overflow-x: hidden
+  background-color: #171717
+  background-image: url(/images/body-bg.png)
+  color: #f5f5f5
+
+.wrapper
+  max-width: 1024px
+  margin: auto
+
+// Global Semantic UI
+.ui.form .field
+  margin-bottom: 20px
+
+.ui.form .field>label
+  color: #f5f5f5
+  font-weight: 300
+  font-size: 16px
+  line-height: 24px
+  margin-bottom: 0
+
+.ui.form .field.error .input, .ui.form .field.error label, .ui.form .fields.error .field .input, .ui.form .fields.error .field label
+  color: #fb3b30
+
+.ui.form .field .ui.input, .ui.form .fields .field .ui.input, .ui.form .wide.field .ui.input
+  margin-bottom: 0
+
+.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input, .ui.form .field.field input:-webkit-autofill:focus
+  ont-weight: 400
+  font-size: 16px
+  line-height: 24px
+  color: #f5f5f5
+  padding-left: 0
+  height: 38px!important
+  background-color: inherit
+  border-radius: 0!important
+  border: none
+  border-bottom: 1px solid #646469
+
+.ui.form input:not([type]):focus, .ui.form input[type=date]:focus, .ui.form input[type=datetime-local]:focus, .ui.form input[type=email]:focus, .ui.form input[type=file]:focus, .ui.form input[type=number]:focus, .ui.form input[type=password]:focus, .ui.form input[type=search]:focus, .ui.form input[type=tel]:focus, .ui.form input[type=text]:focus, .ui.form input[type=time]:focus, .ui.form input[type=url]:focus
+  outline: none
+  box-shadow: none
+  border-bottom: 1px solid #f5f5f5 !important
+
+.ui.form .field.error input:not([type]):focus, .ui.form .field.error input[type=date]:focus, .ui.form .field.error input[type=datetime-local]:focus, .ui.form .field.error input[type=email]:focus, .ui.form .field.error input[type=file]:focus, .ui.form .field.error input[type=number]:focus, .ui.form .field.error input[type=password]:focus, .ui.form .field.error input[type=search]:focus, .ui.form .field.error input[type=tel]:focus, .ui.form .field.error input[type=text]:focus, .ui.form .field.error input[type=time]:focus, .ui.form .field.error input[type=url]:focus, .ui.form .field.error select:focus, .ui.form .field.error textarea:focus
+  background: transparent
+  color: #f5f5f5
+  border-bottom: 1px solid #fb3b30 !important
+
+.ui.orange.button, .ui.orange.buttons .button
+  font-size: 16px!important
+  font-weight: 400!important
+  text-transform: uppercase
+  text-align: center
+  padding: 0.8em 1.75em
+  letter-spacing: .02em
+  line-height: 24px
+  border-radius: 3px
+  border: 1px solid #d8a31f
+  background-color: #d8a31f
+  color: #1f1f26
+  overflow: hidden
+
+.ui.orange.button:active, .ui.orange.buttons .button:active,
+.ui.orange.button:hover, .ui.orange.buttons .button:hover
+  background-color: #fab814
+  border: 1px solid #d8a31f
+  color: #1f1f26
+
+.ui.form .field .prompt.label
+  white-space: normal
+  background: transparent !important
+  border: none !important
+  padding: 0
+  color: #fb3b30 !important
+  margin-top: 0
+  font-weight: 400
+  width: 100%
+  text-align: right
+
+.ui.pointing.label:before, .ui[class*="pointing above"].label:before
+  display: none

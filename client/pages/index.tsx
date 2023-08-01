@@ -6,9 +6,11 @@ import {
 import { wrapper } from '@/api/store'
 import { NextPage } from 'next'
 import { useMemo } from 'react'
-import { Header } from 'semantic-ui-react'
 
+import EventRegistration from '@/components/event-registration'
 import FormBooking from '@/components/form-booking'
+import Header from '@/components/header'
+import Slider from '@/components/slider'
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async () => {
@@ -36,21 +38,23 @@ const Main: NextPage = () => {
 
     return (
         <div>
-            <Header>111</Header>
-            <h1>Астрономические мероприятия</h1>
-            {openRegistrationEvent && (
-                <FormBooking event={openRegistrationEvent.id} />
-            )}
-            <h2>Архив астрономичкских мероприятий</h2>
-            {eventsData?.items
-                .filter(({ registration_enable }) => !registration_enable)
-                ?.map((event) => (
-                    <div key={event.id}>
-                        <h3>{event.title}</h3>
-                        <div>{event.text}</div>
-                        <div>Участников: {event.members}</div>
-                    </div>
-                ))}
+            <Header />
+            <Slider />
+            <div className={'wrapper'}>
+                {openRegistrationEvent && (
+                    <EventRegistration event={openRegistrationEvent} />
+                )}
+                {/*<h2>Архив астрономичкских мероприятий</h2>*/}
+                {/*{eventsData?.items*/}
+                {/*    .filter(({ registration_enable }) => !registration_enable)*/}
+                {/*    ?.map((event) => (*/}
+                {/*        <div key={event.id}>*/}
+                {/*            <h3>{event.title}</h3>*/}
+                {/*            <div>{event.text}</div>*/}
+                {/*            <div>Участников: {event.members}</div>*/}
+                {/*        </div>*/}
+                {/*    ))}*/}
+            </div>
         </div>
     )
 }
