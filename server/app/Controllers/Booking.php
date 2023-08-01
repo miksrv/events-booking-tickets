@@ -42,6 +42,10 @@ class Booking extends ResourceController
             return $this->failNotFound('Такого мероприятия не существует');
         }
 
+        if (!$dataEvent->registration_enable) {
+            return $this->fail('Регистрация на это мероприятие уже закрыта');
+        }
+
         try {
             $modelMembers = new MembersModel();
             $dataMembers  = $modelMembers->where(['email' => $input['email']])->first();

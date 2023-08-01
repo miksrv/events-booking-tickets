@@ -4,11 +4,19 @@
   margin-top: 3em
   z-index: 1
 
+  @media screen and (max-width: 768px)
+    margin-top: 1em
+    margin-bottom: 0
+
   .sectionTitle
     font-size: 30px
     line-height: 40px
     margin-bottom: 30px
     font-weight: 200
+
+    @media screen and (max-width: 768px)
+      font-size: 26px
+      margin-bottom: .5em
 
     &:before
       content: ""
@@ -23,6 +31,10 @@
   .sectionImage
     position: relative
 
+    @media screen and (max-width: 768px)
+      margin: 0 -10px
+      margin-bottom: 1em
+
     &:before
       content: ""
       position: absolute
@@ -36,6 +48,9 @@
       min-height: 72%
       max-height: 232px
 
+      @media screen and (max-width: 768px)
+        display: none
+
     &:after
       position: absolute
       content: ""
@@ -48,14 +63,13 @@
       left: -40px
       background-image: url(/images/benefits-after-bg.jpg)
 
+      @media screen and (max-width: 768px)
+        display: none
+
     .eventImage
       width: 100%
       height: auto
       object-fit: cover
-
-
-
-  .eventTitle
 
   .divider
     position: relative
@@ -65,17 +79,17 @@
     margin-bottom: 15px
     margin-top: 80px
 
+    @media screen and (max-width: 768px)
+      margin-top: 30px
+
     &:before
       content: ""
       position: absolute
       top: -2px
       left: 0
-      max-width: 28px
       width: 100%
       border-top: 2px solid #A7AAB1
-
-      @media screen and (min-width: 768px)
-        max-width: 500px
+      max-width: 50%
 
   .description
     margin-top: 60px
@@ -83,6 +97,10 @@
 
   .information
     padding-left: 30px
+
+    @media screen and (max-width: 768px)
+      padding-left: 0
+      text-align: center
 
     .infoSection
       margin-bottom: 22px
@@ -104,6 +122,9 @@
     .registrationButton
       margin-top: 30px
       width: 100%
+
+      @media screen and (max-width: 768px)
+        margin-top: 0
 
     .registrationClosed
       color: #d8a31f

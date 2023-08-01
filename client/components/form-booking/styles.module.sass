@@ -1,6 +1,9 @@
 .bookingForm
   max-width: 500px
 
+  @media screen and (max-width: 768px)
+    margin-bottom: 2em
+
   .marginBottom
     margin-bottom: 20px
 
@@ -8,8 +11,17 @@
     display: flex
     justify-content: right
 
+    @media screen and (max-width: 768px)
+      justify-content: center
+
     .cancelButton
       margin-right: 20px
 
+      @media screen and (max-width: 768px)
+        width: 50%
+
     .submitButton
       margin-right: 0
+
+      @media screen and (max-width: 768px)
+        width: 50%

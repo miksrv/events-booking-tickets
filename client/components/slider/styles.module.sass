@@ -8,6 +8,9 @@
   position: relative
   z-index: 1
 
+  @media screen and (max-width: 768px)
+    max-height: 500px
+
   &::before
     content: ""
     position: absolute
@@ -22,6 +25,9 @@
   .overlay
     height: 100vh
 
+    @media screen and (max-width: 768px)
+      max-height: 500px
+
 .title
   font-size: 50px
   line-height: 58px
@@ -33,6 +39,9 @@
   font-weight: 100
   padding-top: 25%
 
+  @media screen and (max-width: 768px)
+    font-size: 2em
+    line-height: 1.2em
 
   &:before
     position: absolute
